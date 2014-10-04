@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.19)
 # Database: bachatdb
-# Generation Time: 2014-10-04 05:53:38 +0000
+# Generation Time: 2014-10-04 06:06:52 +0000
 # ************************************************************
 
 
@@ -62,7 +62,7 @@ DROP TABLE IF EXISTS `offer`;
 CREATE TABLE `offer` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `end_time` timestamp NULL DEFAULT NULL,
+  `end_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `shopkeeper_id` int(11) NOT NULL,
   `product_name` varchar(50) NOT NULL DEFAULT '',
   `description` varchar(100) NOT NULL DEFAULT '',
@@ -83,8 +83,8 @@ CREATE TABLE `shop` (
   `address_id` int(11) NOT NULL,
   `owner_id` int(11) NOT NULL,
   `shop_category_id` int(11) NOT NULL,
-  `opening_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `closing_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `opening_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `closing_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `day_closed` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
